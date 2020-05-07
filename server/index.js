@@ -1,23 +1,23 @@
 const express = require('express');
-const morgan = require('morgan');
+const volleyball = require('volleyball');
 
 
 
 const app = express();
+app.use(volleyball);
 
-app.use(morgan('dev'));
 
 
 
 app.get('/', (req, res)=>{
   return res.json({
-    evento: '🐱‍🏍🌈 Hello World⭐🐱‍',
+    message: '🐱‍🏍🌈 Hello World⭐🐱‍',
   });
 });
 
 function notFound(req, res, next){
     res.status(404);
-    const error = new Error('Not Found -'+req.originalUrl);
+    const error = new Error('Not Found -' + req.originalUrl);
     next(error);
 }
 
